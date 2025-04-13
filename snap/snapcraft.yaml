@@ -1,5 +1,5 @@
 name: csven
-version: '0.1.1'
+version: '0.1.2'
 summary: Order English words
 description: CSVEN allows you to add an English word to mess it up and put it back together to learn how to write it through a game
 
@@ -11,11 +11,11 @@ apps:
   csven:
     command: bin/csven
     desktop: ${SNAPCRAFT_STAGE}/share/applications/io.github.rsvzz.csven.desktop
+    extensions: [gnome]
+    common-id: io.github.rsvzz.csven
     plugs: 
     - x11
     - wayland
-    - desktop
-    - desktop-legacy
 
 parts:
   questk:
@@ -44,10 +44,6 @@ parts:
     build-packages:
       - meson
       - ninja-build
-      - libgtk-4-dev
-    stage-packages:
-      - libgtk-4-1
-      - fontconfig
     override-build: |
       snapcraftctl build
       rm -r ${SNAPCRAFT_PART_INSTALL}/share/applications/io.github.rsvzz.csven.desktop
@@ -58,3 +54,9 @@ parts:
     override-build: |
       mkdir ${SNAPCRAFT_PART_INSTALL}/share/applications -p
       cp ${SNAPCRAFT_PART_BUILD}/data/io.github.rsvzz.csven.desktop ${SNAPCRAFT_PART_INSTALL}/share/applications
+
+slots:
+  csven:
+    interface: dbus
+    bus: session
+    name: io.github.rsvzz.csven
