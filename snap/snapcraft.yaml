@@ -1,23 +1,27 @@
 name: csven
-version: '0.1.2'
+version: '0.1.3'
 summary: Order English words
 description: CSVEN allows you to add an English word to mess it up and put it back together to learn how to write it through a game
 
 base: core24
 confinement: strict
 grade: stable
+compression: lzo
+
+platforms:
+  amd64:
+  arm64:
+
 
 apps:
   csven:
     command: bin/csven
     desktop: ${SNAPCRAFT_STAGE}/share/applications/io.github.rsvzz.csven.desktop
     extensions: [gnome]
-    common-id: io.github.rsvzz.csven
+    common-id: io.github.rsvzz.csven.desktop
     plugs: 
-    - x11
-    - wayland
-    - desktop
-    - desktop-legacy
+      - x11
+      - wayland
 
 parts:
   questk:
@@ -45,7 +49,6 @@ parts:
       - LIBRARY_PATH: ${SNAPCRAFT_STAGE}/lib/x86_64-linux-gnu
     build-packages:
       - meson
-      - ninja-build
     override-build: |
       snapcraftctl build
       rm -r ${SNAPCRAFT_PART_INSTALL}/share/applications/io.github.rsvzz.csven.desktop
