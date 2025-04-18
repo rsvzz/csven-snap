@@ -1,11 +1,12 @@
 name: csven
-version: '0.1.4'
+version: '0.1.3'
 summary: Order English words
 description: CSVEN allows you to add an English word to mess it up and put it back together to learn how to write it through a game
 
 base: core24
 confinement: strict
 grade: stable
+license: GPL-3.0-or-later
 compression: lzo
 
 platforms:
@@ -17,10 +18,12 @@ apps:
     command: bin/csven
     desktop: ${SNAPCRAFT_STAGE}/share/applications/io.github.rsvzz.csven.desktop
     extensions: [gnome]
-    common-id: io.github.rsvzz.csven.desktop
+    common-id: io.github.rsvzz.csven
+    slots: [csven-dbs]
     plugs: 
       - x11
       - wayland
+      - desktop-legacy
 
 parts:
   questk:
@@ -60,7 +63,7 @@ parts:
       cp ${SNAPCRAFT_PART_BUILD}/data/io.github.rsvzz.csven.desktop ${SNAPCRAFT_PART_INSTALL}/share/applications
 
 slots:
-  csven:
+  csven-dbs:
     interface: dbus
     bus: session
     name: io.github.rsvzz.csven
