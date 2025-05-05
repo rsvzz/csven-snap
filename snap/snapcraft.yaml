@@ -9,10 +9,6 @@ grade: stable
 license: GPL-3.0-or-later
 compression: lzo
 
-platforms:
-  amd64:
-  arm64:
-
 apps:
   csven:
     command: bin/csven
@@ -24,6 +20,7 @@ apps:
       - x11
       - wayland
       - desktop-legacy
+      - desktop
 
 parts:
   questk:
