@@ -9,6 +9,11 @@ grade: stable
 license: GPL-3.0-or-later
 compression: lzo
 
+platforms: 
+  amd64:
+  arm64:
+  armhf:
+
 apps:
   csven:
     command: bin/csven
