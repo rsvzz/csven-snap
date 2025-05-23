@@ -17,7 +17,7 @@ platforms:
 apps:
   csven:
     command: bin/csven
-    desktop: ${SNAPCRAFT_STAGE}/share/applications/io.github.rsvzz.csven.desktop
+    desktop: share/applications/io.github.rsvzz.csven.desktop
     extensions: [gnome]
     common-id: io.github.rsvzz.csven
     slots: [csven-dbs]
@@ -43,7 +43,7 @@ parts:
     plugin: meson
     source: https://github.com/rsvzz/csven.git
     source-type: git
-    source-tag: 0.1.1
+    source-tag: 0.1.5
     meson-parameters:
       - --prefix=/
       - --buildtype=release
@@ -56,13 +56,7 @@ parts:
     override-build: |
       snapcraftctl build
       rm -r ${SNAPCRAFT_PART_INSTALL}/share/applications/io.github.rsvzz.csven.desktop
-    
-  csven-files:
-    source: .
-    plugin: dump
-    override-build: |
-      mkdir ${SNAPCRAFT_PART_INSTALL}/share/applications -p
-      cp ${SNAPCRAFT_PART_BUILD}/data/io.github.rsvzz.csven.desktop ${SNAPCRAFT_PART_INSTALL}/share/applications
+      cp -v ${SNAPCRAFT_PROJECT_DIR}/data/io.github.rsvzz.csven.desktop ${SNAPCRAFT_PART_INSTALL}/share/applications
 
 slots:
   csven-dbs:
