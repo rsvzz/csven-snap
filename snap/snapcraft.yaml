@@ -2,7 +2,6 @@ name: csven
 version: '0.1.8'
 summary: Order English words
 description: CSVEN allows you to add an English word to mess it up and put it back together to learn how to write it through a game
-
 base: core24
 confinement: strict
 grade: stable
@@ -28,7 +27,6 @@ apps:
       - desktop
 
 parts:
-
   csven:
     plugin: meson
     source: https://github.com/rsvzz/csven.git
