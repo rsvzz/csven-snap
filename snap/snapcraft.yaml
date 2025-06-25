@@ -1,5 +1,5 @@
 name: csven
-version: '0.1.10'
+version: '0.1.12'
 summary: Order English words
 description: CSVEN allows you to add an English word to mess it up and put it back together to learn how to write it through a game
 base: core24
@@ -31,7 +31,7 @@ parts:
     plugin: meson
     source: https://github.com/rsvzz/csven.git
     source-type: git
-    source-tag: 0.1.10
+    source-tag: 0.1.12
     meson-parameters:
       - --prefix=/
       - --buildtype=release
