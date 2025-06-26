@@ -40,10 +40,14 @@ parts:
       - LIBRARY_PATH: ${SNAPCRAFT_STAGE}/lib/x86_64-linux-gnu
     build-packages:
       - meson
+    stage-packages:
+      - adwaita-icon-theme
     override-build: |
       snapcraftctl build
       rm -r ${SNAPCRAFT_PART_INSTALL}/share/applications/io.github.rsvzz.csven.desktop
       cp -v ${SNAPCRAFT_PROJECT_DIR}/data/io.github.rsvzz.csven.desktop ${SNAPCRAFT_PART_INSTALL}/share/applications
+    stage-packages:
+      - adwaita-icon-theme
 
 slots:
   csven-dbs:
