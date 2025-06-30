@@ -20,6 +20,9 @@ apps:
     extensions: [gnome]
     common-id: io.github.rsvzz.csven
     slots: [csven-dbs]
+    environment:
+      GTK_THEME: Adwaita
+      XDG_DATA_DIRS: $SNAP/usr/share:$SNAP/share:/usr/share:/var/lib/snapd/desktop:$XDG_DATA_DIRS
     plugs: 
       - x11
       - wayland
@@ -40,8 +43,6 @@ parts:
       - LIBRARY_PATH: ${SNAPCRAFT_STAGE}/lib/x86_64-linux-gnu
     build-packages:
       - meson
-    stage-packages:
-      - adwaita-icon-theme
     override-build: |
       snapcraftctl build
       rm -r ${SNAPCRAFT_PART_INSTALL}/share/applications/io.github.rsvzz.csven.desktop
