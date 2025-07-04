@@ -1,5 +1,5 @@
 name: csven
-version: '0.1.12'
+version: '0.1.13'
 summary: Order English words
 description: CSVEN allows you to add an English word to mess it up and put it back together to learn how to write it through a game
 base: core24
@@ -22,7 +22,9 @@ apps:
     slots: [csven-dbs]
     environment:
       GTK_THEME: Adwaita
-      XDG_DATA_DIRS: $SNAP/usr/share:$SNAP/share:/usr/share:/var/lib/snapd/desktop:$XDG_DATA_DIRS
+      XDG_DATA_DIRS: "$SNAP/usr/share:$SNAP/share:${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"
+      GTK_DATA_PREFIX: $SNAP
+
     plugs: 
       - x11
       - wayland
@@ -34,7 +36,7 @@ parts:
     plugin: meson
     source: https://github.com/rsvzz/csven.git
     source-type: git
-    source-tag: 0.1.12
+    source-tag: 0.1.13
     meson-parameters:
       - --prefix=/
       - --buildtype=release
