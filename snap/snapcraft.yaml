@@ -36,7 +36,7 @@ parts:
     plugin: meson
     source: https://github.com/rsvzz/csven.git
     source-type: git
-    source-tag: 0.1.13
+    source-tag: 0.1.14
     meson-parameters:
       - --prefix=/
       - --buildtype=release
