@@ -20,10 +20,6 @@ apps:
     extensions: [gnome]
     common-id: io.github.rsvzz.csven
     slots: [csven-dbs]
-    environment:
-      GTK_THEME: Adwaita
-      XDG_DATA_DIRS: "$SNAP/usr/share:$SNAP/share:${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"
-      GTK_DATA_PREFIX: $SNAP
 
     plugs: 
       - x11
